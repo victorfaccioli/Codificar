@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="asstes/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Codificador</h1>
+    <form action="">
+        <div class="description">
+            <p>Descrição: Selecionar qual tipo de codificação quer no seu texto Cifra de cesar ou Base64. Clique no botão "Codificar" para que o seu texto apareça criptografado ou clique no botão "Descodificar" para descodificar texto digitado</p>
+        </div>
+        <div class="form-radio">
+            <input type="radio" id="cifraCesar" name="cifraCesar" value="cesar">
+            <label for="cifraCesar">Cifra César</label><br>
+            <input type="radio" id="base64" name="base64" value="base64">
+            <label for="base64">Base64</label><br>
+        </div>
+        <div class="form-text">
+            <label for="text">Digite seu texto</label>
+            <textarea id="text" name="text" rows="10" cols="50">
+            </textarea>
+        </div>
+
+        <input type="submit" value="Codificar">
+        <input type="submit" value="Descodificar">
+
+        <div class="form-result">
+            <label for="text">Resultado: </label>
+            <textarea id="text" name="text" rows="10" cols="50">
+            </textarea>
+        </div>
+    </form>
+
+    <script src="asstes/js/script.js"></script>
+</body>
+</html>
