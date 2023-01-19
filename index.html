@@ -9,39 +9,50 @@
 </head>
 <body>
     <h1>Codificador</h1>
-    <div class="description">
-        <p>
+        <p class="description">
             Descrição: Selecionar qual tipo de codificação/decodificação deseja utilizar em seu texto.
         </p>
-    </div>
-    <form action="">
 
-        <div class="formSelect">
+    <form action="" >
 
-            <select name="select" id="selectCript" onchange="textAreaOn(this.value)">
-                <option value="selecionar"></option>
+        <div class="combo-criptografia">
+
+            <select name="tipo_criptografia" id="tipo_criptografia" >
+                <option value="">Selecione a criptografia</option>
                 <option value="cesar">Cifra de César</option>
                 <option value="base">Base64</option>
             </select>
-
+            <select class="none" name="valor_rotacao" id="valor_rotacao">
+                <option value="">Selecione a rotação</option>
+                <option value="1">ROT1</option>
+                <option value="2">ROT2</option>
+                <option value="3">ROT3</option>
+                <option value="4">ROT4</option>
+                <option value="5">ROT5</option>
+            </select>
         </div>
-
-
-        <div class="form-result">
-            <label for="text">Resultado: </label>
-            <textarea id="text" name="text" rows="9" cols="50">
-            </textarea>
+        <div class="radio">        
+            <label><input type="radio" id="codificar" value="codificar" name="codificar_decodificar">Codificar</label>
+            <label><input type="radio" id="decodificar" value="decodificar" name="codificar_decodificar">Decodificar</label>
         </div>
-        <div class="radio">
-            
-        <label><input type="radio" value="1" name="my-radio">codificar</label>
-        <label><input type="radio" value="2" name="my-radio">decodificar</label>
+        <div class="form-text">
+            <div class="text-area">
+                <label for="text" id="text_input">Digite seu texto </label>
+                <textarea id="text" name="text" rows="9" cols="50" required>
+                </textarea>
+            </div>
+            <div class="text-area">
+                <label for="text" id="text_output">Resultado:</label> 
+                <textarea id="text" name="text" rows="9" cols="50">
+                </textarea>
+            </div>
         </div>
-
     </form>
-
+    <button id="btn">CODIFICAR</button>
     
 
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="asstes/js/script.js"></script>
 </body>
 </html>
