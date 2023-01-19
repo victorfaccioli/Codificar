@@ -8,21 +8,65 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(52, 44, 44);
+    background-color: rgb(8, 3, 22);
     color: rgb(255, 255, 255);
 }
-form > .form-radio{
-    align-self: center;
-    display: flex;
-    width: 20%;
-    border: solid;
+h1{
+    padding-top: 20px;
 }
-.form-radio{
+form{
     display: flex;
-    justify-content: space-between;
-    width: 30%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
 }
 .description{
-    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* Estilo para quando usar js para aparecer textarea */
+.formText{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.formText label{
+    justify-content: center;
+    padding: 5px 0;
+}
+.description1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+}
+.radio{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 50%;
+    padding: 20px;
     
 }
+.radio label{
+
+}
+
+.form-result{
+    display: none;
+    flex-direction: column;
+
+}
+.form-result label{
+    display: none;
+    justify-content: center;
+    padding: 5px 0;
+}
+
+
