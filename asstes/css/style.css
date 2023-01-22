@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #080316;
+    color: #ffffff;
+}
+
+h1{
+    padding-top: 20px;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+textarea {
+    resize: none;
+}
+
+button{
+    margin-top: 20px;
+    padding: 5px;
+}
+.description{
+    margin: 10px 0;
+}
+
+.combo-criptografia{
+    display: flex;
+    padding: 10px;
+    gap: 15px;
+}
+input{
+    width: 70px;
+}
+.none{
+    display: none;
+}
+
+.radio{
+    display: flex;
+    padding: 10px;
+    gap: 40px;
+}
+
+.form-text{
+    display: flex;
+    gap: 40px;
+}
+
+
+.text-area{
+    display: flex;
+    flex-direction: column;
+}
+
