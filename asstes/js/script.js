@@ -1,126 +1,99 @@
+$('form').on('submit', function(e){
+  e.preventDefault()
+})
 
-
+let tipoCriptografia
 $('#tipo_criptografia').on('change', function(e) {
-    const tipoCriptografia = e.target.value
+    tipoCriptografia = $(this).val() // atribuindo o valor para a letiavel global
     if(tipoCriptografia === 'cesar'){
       $('#valor_rotacao').show()  
     }
     else{
         $('#valor_rotacao').hide()  
     }
+})
+
+let selecionarValor
+$("input[name='codificar_decodificar']").change(function(){
+   selecionarValor = $(this).val()
+  if(selecionarValor === 'codificar'){
+    $('#btn').text('CODIFICAR')
+  }
+  else{
+    $('#btn').text('DECODIFICAR')
+  }
+})
+
+let valorRotacao
+$("#valor_rotacao").on("input", function(){
+  valorRotacao = $(this).val()
 });
 
-$('input[name="codificar_decodificar"]').on('change', function(e) {
-    const codificar_decodificar = e.target.value
-    if(codificar_decodificar === 'codificar'){
-        $('#btn').text('CODIFICAR')
-    }
-    else{
-        $('#btn').text('DECODIFICAR')
-    }
+let textoNaoCodificado
+$("#text_input").on("input", function(){
+  textoNaoCodificado = $(this).val()
 });
 
+function CaesarCipherCode(str, shift) {
+  let texto = "";
+  for (let i = 0; i < str.length; i++) {
+    let c = str[i];
+    if (c.match(/[a-z]/i)) {
+      let code = str.charCodeAt(i);
+      if ((code >= 65) && (code <= 90))
+        c = String.fromCharCode(((code - 65 + shift) % 26) + 65);
+      else if ((code >= 97) && (code <= 122))
+        c = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+    }
+    texto += c;
+  }
+  return texto;
 
 
+}function CaesarCipherDecode(str, shift) {
+  let texto = "";
+  for (let i = 0; i < str.length; i++) {
+    let c = str[i];
+    if (c.match(/[a-z]/i)) {
+      let code = str.charCodeAt(i);
+      if ((code >= 65) && (code <= 90))
+        c = String.fromCharCode(((code - 65 + shift) % 26) + 65);
+      else if ((code >= 97) && (code <= 122))
+        c = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+    }
+    texto += c;
+  }
+  return texto;
+}
 
+function base64Encode(str) {
+  return btoa(str)
+}
 
+function base64Decode(str) {
+  return atob(str)
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const form = document.querySelector('form')
-// const radio= document.querySelector('.radio')
-// const myradio= document.querySelector('myradio')
-// const rota= document.querySelector('#rota')
-// const radio2= document.querySelector('#base')
-
-
-
-
-
-
-// function textAreaOn(valor){
-
-//     if(valor === 'cesar'){
-//     const formText = document.createElement('div')
-//     formText.setAttribute ('class','formText')
-//     form.appendChild(formText)
-
-//     const label = document.createElement('label')
-//     label.setAttribute('for','text')
-//     formText.appendChild(label)
-
-//     const textLabel = document.createTextNode('Digite seu texto:')
-//     label.appendChild(textLabel)
-
-//     const textArea = document.createElement('textarea')
-//     textArea.setAttribute('id','text')
-//     textArea.setAttribute('name','text')
-//     textArea.setAttribute('rows','9')
-//     textArea.setAttribute('cols','50')
-//     formText.appendChild(textArea)
-
-//     const description = document.createElement('div')
-//     description.setAttribute ('class','description1')
-//     form.appendChild(description)
-
-//     const paragrafo = document.createElement('p')
-//     description.appendChild(paragrafo)
-//     const texto = document.createTextNode('Clique na opção desejada para o resultado.')
-//     paragrafo.appendChild(texto)
-
-//     radio.style.display = 'flex'
-
-    // const labelradio1 = document.createElement('label')
-    // radio.appendChild(labelradio1)
-    // const inputradio1 = document.createElement('input')
-    // inputradio1.setAttribute('type','radio')
-    // inputradio1.setAttribute('value','codificar')
-    // inputradio1.setAttribute('name','my-radio')
-    // inputradio1.addEventListener("onchange", codificar())
-    // labelradio1.appendChild(inputradio1)
-    // const textLabelRadio1 = document.createTextNode('Codificar')
-    // labelradio1.appendChild(textLabelRadio1)
-
-    // const labelradio2 = document.createElement('label')
-    // radio.appendChild(labelradio2)
-    // const inputradio2 = document.createElement('input')
-    // inputradio2.setAttribute('type','radio')
-    // inputradio2.setAttribute('value','decodificar')
-    // inputradio2.setAttribute('name','my-radio')
-    // inputradio2.addEventListener("onchange", decodificar())
-    // labelradio2.appendChild(inputradio2)
-    // const textLabelRadio2 = document.createTextNode('Decodificar')
-    // labelradio2.appendChild(textLabelRadio2)
-// }
-// }
+$('#btn').on('click', function() {
+  let tipoCriptografia = $('#tipo_criptografia').val()
+  let selecionarValor = $("input[name='codificar_decodificar']:checked").val()
+  let valorRotacao = Number($("#valor_rotacao").val()) 
+  let textoNaoCodificado = $("#text_input").val()
+  if (selecionarValor === 'codificar') {
+    if (tipoCriptografia === 'cesar') {
+      let textoCodificado = CaesarCipherCode(textoNaoCodificado,valorRotacao)
+      console.log(textoCodificado);
+      $('#text_output').val(textoCodificado)
+    }
+      else if (tipoCriptografia === 'base64') {
+      let textoCodificado = base64Encode(textoNaoCodificado)
+      $('#text_output').val(textoCodificado)
+}}
+  else if (selecionarValor === 'decodificar') {
+    if (tipoCriptografia === 'cesar') {
+      let textoDecodificado = CaesarCipherDecode(textoNaoCodificado, -valorRotacao)
+      $('#text_output').val(textoDecodificado);
+    }else if (tipoCriptografia === 'base64') {
+      let textoDecodificado = base64Decode(textoNaoCodificado)
+      $('#text_output').val(textoDecodificado)
+}}})

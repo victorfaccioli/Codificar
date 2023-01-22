@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="asstes/css/style.css">
@@ -17,38 +17,31 @@
 
         <div class="combo-criptografia">
 
-            <select name="tipo_criptografia" id="tipo_criptografia" >
+            <select name="tipo_criptografia" id="tipo_criptografia" required>
                 <option value="">Selecione a criptografia</option>
                 <option value="cesar">Cifra de César</option>
-                <option value="base">Base64</option>
+                <option value="base64">Base64</option>
             </select>
-            <select class="none" name="valor_rotacao" id="valor_rotacao">
-                <option value="">Selecione a rotação</option>
-                <option value="1">ROT1</option>
-                <option value="2">ROT2</option>
-                <option value="3">ROT3</option>
-                <option value="4">ROT4</option>
-                <option value="5">ROT5</option>
-            </select>
+            <input class="none" type="number" name="valor_rotacao" id="valor_rotacao" min="1" max="25">
         </div>
-        <div class="radio">        
-            <label><input type="radio" id="codificar" value="codificar" name="codificar_decodificar">Codificar</label>
-            <label><input type="radio" id="decodificar" value="decodificar" name="codificar_decodificar">Decodificar</label>
+        <div class="radio" id="codificarDecodificar">        
+            <label><input type="radio" id="codificar" value="codificar" name="codificar_decodificar" checked required>Codificar</label>
+            <label><input type="radio" id="decodificar" value="decodificar" name="codificar_decodificar" required>Decodificar</label>
         </div>
         <div class="form-text">
             <div class="text-area">
-                <label for="text" id="text_input">Digite seu texto </label>
-                <textarea id="text" name="text" rows="9" cols="50" required>
-                </textarea>
+                <label for="text" >Digite seu texto:</label>
+                <textarea id="text_input" name="text" rows="9" cols="50" required></textarea>
             </div>
             <div class="text-area">
-                <label for="text" id="text_output">Resultado:</label> 
-                <textarea id="text" name="text" rows="9" cols="50">
-                </textarea>
+                <label for="text" >Resultado:</label> 
+                <textarea id="text_output" name="text" rows="9" cols="50" readonly></textarea>
             </div>
         </div>
+        <button id="btn" type="submit">CODIFICAR</button>
     </form>
-    <button id="btn">CODIFICAR</button>
+    
+    
     
 
     
