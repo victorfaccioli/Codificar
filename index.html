@@ -13,32 +13,32 @@
             Descrição: Selecionar qual tipo de codificação/decodificação deseja utilizar em seu texto.
         </p>
 
-    <form action="" >
+     <form action="" >  <!--Isso cria um formulário para a página. O atributo "action" vazio significa que os dados serão enviados para a mesma página. -->
 
         <div class="combo-criptografia">
 
-            <select name="tipo_criptografia" id="tipo_criptografia" required>
+             <select name="tipo_criptografia" id="tipo_criptografia" required>  <!--Isso cria um select com as opções de criptografia. O atributo "required" torna a seleção de uma opção obrigatória. -->
                 <option value="">Selecione a criptografia</option>
                 <option value="cesar">Cifra de César</option>
                 <option value="base64">Base64</option>
             </select>
-            <input class="none" type="number" name="valor_rotacao" id="valor_rotacao" min="1" max="25">
+             <input class="none" type="number" name="valor_rotacao" id="valor_rotacao" min="1" max="25"> <!--Isso cria um input para entrada do valor de rotação. O valor mínimo é 1 e o valor máximo é 25 -->
         </div>
         <div class="radio" id="codificarDecodificar">        
-            <label><input type="radio" id="codificar" value="codificar" name="codificar_decodificar" checked required>Codificar</label>
-            <label><input type="radio" id="decodificar" value="decodificar" name="codificar_decodificar" required>Decodificar</label>
+             <label><input type="radio" id="codificar" value="codificar" name="codificar_decodificar" checked required>Codificar</label> <!--Isso cria um radio button para escolha de codificar. O atributo "checked" indica que essa opção está selecionada por padrão. -->
+             <label><input type="radio" id="decodificar" value="decodificar" name="codificar_decodificar" required>Decodificar</label>
         </div>
         <div class="form-text">
             <div class="text-area">
                 <label for="text" >Digite seu texto:</label>
-                <textarea id="text_input" name="text" rows="9" cols="50" required></textarea>
+                <textarea id="text_input" name="text" rows="9" cols="50" required></textarea> 
             </div>
             <div class="text-area">
                 <label for="text" >Resultado:</label> 
-                <textarea id="text_output" name="text" rows="9" cols="50" readonly></textarea>
+                  <textarea id="text_output" name="text" rows="9" cols="50" readonly></textarea> <!--Isso cria um textarea para saída do texto codificado/decodificado. O atributo "readonly" torna o textarea somente leitura. -->
             </div>
         </div>
-        <button id="btn" type="submit">CODIFICAR</button>
+          <button id="btn" type="submit">CODIFICAR</button> <!--Isso cria um botão de submit para enviar os dados do formulário. -->
     </form>
     
     
